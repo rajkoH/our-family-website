@@ -30,7 +30,11 @@ const allImages = import.meta.glob('/public/images/Chapter*.{jpg,JPG,jpeg,JPEG,p
 const baseUrl = import.meta.env.BASE_URL || '/';
 const chapterImages = Object.keys(allImages)
   .filter(path => path.includes(`/Chapter${chapterNumber}-`))
-  .map(path => `${baseUrl}${path.replace('/public/', '')}`)
+  .map(path => {
+    const imagePath = path.replace('/public/', '');
+    // Ensure proper path construction with base URL
+    return baseUrl.endsWith('/') ? `${baseUrl}${imagePath}` : `${baseUrl}/${imagePath}`;
+  })
   .sort();
 
 // Generate unique ID for this gallery
@@ -48,7 +52,7 @@ const galleryId = `gallery-chapter-${chapterNumber}`;
       <div class="flex-1 flex items-center justify-center">
         <div class="relative w-full max-w-2xl">
           {tagline && (
-            <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase mb-2">
+            <p class="text-base text-secondary dark:text-orange-200 font-semibold tracking-wide uppercase mb-2">
               {tagline}
             </p>
           )}
@@ -73,51 +77,54 @@ const galleryId = `gallery-chapter-${chapterNumber}`;
                   ))}
                 </div>
 
-                <!-- Gallery Controls -->
-                {chapterImages.length > 1 && (
-                  <>
-                    <button
-                      type="button"
-                      class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 dark:bg-slate-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-                      data-gallery-prev={galleryId}
-                      aria-label="Previous image"
-                    >
-                      <Icon name="tabler:chevron-left" class="w-6 h-6 md:w-7 md:h-7 text-primary" />
-                    </button>
+                {
+                  chapterImages.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 dark:bg-slate-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                        data-gallery-prev={galleryId}
+                        aria-label="Previous image"
+                      >
+                        <Icon name="tabler:chevron-left" class="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                      </button>
 
-                    <button
-                      type="button"
-                      class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 dark:bg-slate-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-                      data-gallery-next={galleryId}
-                      aria-label="Next image"
-                    >
-                      <Icon name="tabler:chevron-right" class="w-6 h-6 md:w-7 md:h-7 text-primary" />
-                    </button>
+                      <button
+                        type="button"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 dark:bg-slate-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                        data-gallery-next={galleryId}
+                        aria-label="Next image"
+                      >
+                        <Icon name="tabler:chevron-right" class="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                      </button>
 
-                    <!-- Dots Indicator -->
-                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {chapterImages.map((_, index) => (
-                        <button
-                          type="button"
-                          class={`w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-white w-6' : 'bg-white/60 hover:bg-white/80'}`}
-                          data-gallery-dot={galleryId}
-                          data-index={index}
-                          aria-label={`Go to image ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
+                      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                        {
+                          chapterImages.map((_, index) => (
+                            <button
+                              type="button"
+                              class={`w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-white w-6' : 'bg-white/60 hover:bg-white/80'}`}
+                              data-gallery-dot={galleryId}
+                              data-index={index}
+                              aria-label={`Go to image ${index + 1}`}
+                            />
+                          ))
+                        }
+                      </div>
+                    </>
+                  )
+                }
               </div>
 
-              <!-- Photo Counter -->
-              {chapterImages.length > 1 && (
-                <div class="mt-4 text-center">
-                  <p class="text-sm text-muted">
-                    <span data-gallery-current={galleryId}>1</span> / {chapterImages.length}
-                  </p>
-                </div>
-              )}
+              {
+                chapterImages.length > 1 && (
+                  <div class="mt-4 text-center">
+                    <p class="text-sm text-muted">
+                      <span data-gallery-current={galleryId}>1</span> / {chapterImages.length}
+                    </p>
+                  </div>
+                )
+              }
             </div>
           ) : (
             <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl flex items-center justify-center" style="min-height: 400px;">

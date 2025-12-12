@@ -31,7 +31,7 @@ const {
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-base text-secondary dark:text-orange-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={tagline}
             />
           )
@@ -85,10 +85,10 @@ const {
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"
-                  src={(image as any).src}
-                  alt={(image as any).alt}
-                  width={(image as any).width}
-                  height={(image as any).height}
+                  src={(image as Record<string, unknown>).src as string}
+                  alt={(image as Record<string, unknown>).alt as string}
+                  width={(image as Record<string, unknown>).width as number}
+                  height={(image as Record<string, unknown>).height as number}
                 />
               )}
             </div>

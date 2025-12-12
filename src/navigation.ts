@@ -24,9 +24,7 @@ export const footerData = {
       ],
     },
   ],
-  secondaryLinks: [
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
+  secondaryLinks: [{ text: 'Privacy Policy', href: getPermalink('/privacy') }],
   socialLinks: [
     // Add your social media links here if desired
     // { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },

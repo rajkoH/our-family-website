@@ -26,6 +26,7 @@ export default defineConfig({
 **Replace `YOUR_USERNAME`** with your actual GitHub username!
 
 For example, if your username is `johndoe`:
+
 ```typescript
 site: 'https://johndoe.github.io',
 base: '/rajkoH',
@@ -48,6 +49,7 @@ git push origin main
 ## Step 5: Access Your Site! 🎉
 
 Your site will be live at:
+
 ```
 https://rajkoh.github.io/our-family-website/
 ```
@@ -64,6 +66,7 @@ https://rajkoh.github.io/our-family-website/
 ## Future Updates:
 
 Every time you push code to the main branch:
+
 - GitHub Actions automatically rebuilds
 - Your site updates in 1-2 minutes
 - No manual steps needed!
@@ -73,4 +76,3 @@ Every time you push code to the main branch:
 ## Need Help?
 
 Check the Actions tab for detailed error logs if something goes wrong.
-

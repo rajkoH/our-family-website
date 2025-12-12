@@ -236,7 +236,7 @@ export const astroAssetsOptimizer: ImagesOptimizer = async (
         width: w,
         height: h,
         inferSize: !h, // Only infer if we don't have calculated height
-        ...(format ? { format: format } : {})
+        ...(format ? { format: format } : {}),
       });
 
       return {
