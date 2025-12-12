@@ -22,11 +22,11 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-xl border-amber-300 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-orange-300 focus:ring-offset-orange-100 focus:ring-2 focus:ring-offset-2 hover:bg-amber-50 hover:border-amber-400 dark:text-slate-300 dark:border-orange-800 dark:hover:bg-orange-900 dark:hover:border-orange-700 cursor-pointer;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
@@ -39,12 +39,15 @@
 }
 
 #header.scroll > div:first-child {
-  @apply bg-page md:bg-white/90 md:backdrop-blur-md;
-  box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
+  @apply bg-page md:backdrop-blur-md;
+  background-color: rgba(254, 251, 247, 0.95);
+  box-shadow: 0 0.375rem 1.5rem 0 rgba(180, 120, 100, 0.08);
 }
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
-  @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
+  @apply bg-page md:backdrop-blur-md border-b;
+  background-color: rgba(40, 35, 30, 0.95);
+  border-color: rgba(222, 165, 130, 0.15);
   box-shadow: none;
 }
 /* #header.scroll > div:last-child {

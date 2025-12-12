@@ -1,0 +1,44 @@
+DYNAMIC IMAGE GALLERY INSTRUCTIONS
+==================================
+
+Your website now automatically detects and displays images based on chapter numbers!
+
+HOW IT WORKS:
+-------------
+1. Place images in /public/images/
+2. Name them with the pattern: ChapterN-X.jpg (where N is chapter number, X is any identifier)
+3. The gallery will automatically find and display them
+
+SUPPORTED FORMATS:
+-----------------
+✅ .jpg, .JPG, .jpeg, .JPEG, .png, .PNG
+⚠️  .HEIC files are NOT supported in web browsers - please convert them to JPG
+
+CURRENT CHAPTERS:
+----------------
+- Chapter 1: How We Met (7 images)
+- Chapter 2: Building Our Life Together (8 images)
+- Chapter 3: Our Path to Surrogacy (Currently has HEIC files - needs conversion)
+
+TO ADD MORE IMAGES:
+------------------
+1. Simply add files like "Chapter1-8.jpg" to /public/images/
+2. They will automatically appear in the gallery
+3. No code changes needed!
+
+TO ADD A NEW CHAPTER:
+--------------------
+1. Add images like "Chapter4-1.jpg", "Chapter4-2.jpg" etc.
+2. Edit /src/pages/about.astro
+3. Add a new <ChapterGallery> component with chapterNumber={4}
+
+CONVERTING HEIC FILES:
+---------------------
+On Mac:
+- Open the HEIC file in Preview
+- File > Export > Format: JPEG
+- Save with same filename but .jpg extension
+
+Online:
+- Use https://heictojpg.com or similar free converters
+

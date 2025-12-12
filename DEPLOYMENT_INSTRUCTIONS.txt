@@ -1,0 +1,75 @@
+GITHUB PAGES DEPLOYMENT INSTRUCTIONS
+====================================
+
+Your site will automatically deploy to GitHub Pages whenever you push to the main branch!
+
+SETUP STEPS (ONE-TIME):
+-----------------------
+
+1. Push your code to GitHub:
+   ```bash
+   git add .
+   git commit -m "Add deployment workflow"
+   git push origin main
+   ```
+
+2. Configure GitHub Pages in your repository:
+
+   a. Go to your GitHub repository
+   b. Click "Settings" (top right)
+   c. Click "Pages" in the left sidebar
+   d. Under "Build and deployment":
+      - Source: Select "GitHub Actions"
+   e. Save
+
+3. Update astro.config.ts (if needed):
+
+   If your repo is named something other than your username.github.io,
+   you need to set the base path:
+
+   ```typescript
+   export default defineConfig({
+     site: 'https://YOUR_USERNAME.github.io',
+     base: '/YOUR_REPO_NAME',
+     // ... rest of config
+   });
+   ```
+
+   For example, if your repo is "rajkoH":
+   - site: 'https://yourusername.github.io'
+   - base: '/rajkoH'
+
+THAT'S IT!
+----------
+
+From now on, every time you push code:
+1. GitHub Actions automatically builds your site
+2. Deploys to GitHub Pages
+3. Your site updates within 1-2 minutes
+
+VIEW YOUR SITE:
+--------------
+- If repo is username.github.io: https://username.github.io/
+- Otherwise: https://username.github.io/repo-name/
+
+MONITOR DEPLOYMENTS:
+-------------------
+- Go to "Actions" tab in your GitHub repository
+- You'll see each deployment and its status
+- Click on any deployment to see detailed logs
+
+TROUBLESHOOTING:
+---------------
+If deployment fails:
+1. Check the Actions tab for error logs
+2. Ensure Node.js version matches (v20 in workflow)
+3. Make sure all dependencies are in package.json
+4. Verify build works locally: npm run build
+
+CUSTOM DOMAIN (OPTIONAL):
+-------------------------
+To use a custom domain:
+1. Add a CNAME file to /public/ with your domain
+2. Configure DNS settings with your domain provider
+3. Enable HTTPS in GitHub Pages settings
+

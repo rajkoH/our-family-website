@@ -1,0 +1,55 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  message?: string;
+  signature?: string;
+  id?: string;
+  isDark?: boolean;
+  classes?: Record<string, string>;
+}
+
+const {
+  message = await Astro.slots.render('default'),
+  signature,
+  id,
+  isDark = false,
+  classes = {},
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-4xl ${classes?.container ?? ''}`}>
+  <div class="relative">
+    <!-- Decorative Quote Icon -->
+    <div class="absolute -top-6 -left-4 md:-left-8 text-primary/20 dark:text-primary/30">
+      <Icon name="tabler:quote" class="w-16 h-16 md:w-20 md:h-20" />
+    </div>
+
+    <!-- Message Card -->
+    <div class="relative bg-gradient-to-br from-amber-50 to-orange-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-3xl p-8 md:p-12 shadow-lg">
+      <div class="relative z-10">
+        <div class="prose prose-lg md:prose-xl max-w-none dark:prose-invert">
+          <div class="text-lg md:text-xl leading-relaxed text-default font-serif italic">
+            <Fragment set:html={message} />
+            <slot />
+          </div>
+        </div>
+
+        {
+          signature && (
+            <div class="mt-8 pt-6 border-t border-primary/20">
+              <p class="text-right text-lg md:text-xl font-heading font-semibold text-primary">— {signature}</p>
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="absolute bottom-4 right-4 text-primary/10 dark:text-primary/20">
+        <Icon name="tabler:heart" class="w-24 h-24 md:w-32 md:h-32" />
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>
+

@@ -1,8 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import HeartfeltMessage from '~/components/widgets/HeartfeltMessage.astro';
 
 const metadata = {
   title: 'Contact',
@@ -10,70 +9,95 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <!-- Warm Introduction -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-base text-secondary font-bold tracking-wide uppercase mb-2">Let&apos;s Talk</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 font-heading">
+        We&apos;d Love to Hear From You
+      </h1>
+      <p class="text-xl text-muted leading-relaxed max-w-3xl mx-auto">
+        Whether you have questions, want to know more about us, or just want to start a conversation,
+        we&apos;re here. There&apos;s no pressure, no expectations - just two people hoping to connect
+        and share their story.
+      </p>
+    </div>
+  </section>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
+  <!-- Contact Form -->
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Start the Conversation"
+    subtitle="Send us a message and we&apos;ll get back to you within 24-48 hours. Ask us anything - we&apos;re an open book."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Your Name',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'Your Email',
       },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Your Message',
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'By submitting this form, you acknowledge and agree to the collection of your personal information. We respect your privacy and will never share your information.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="We typically respond within 24-48 hours. We look forward to hearing from you!"
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Alternative Contact Methods -->
+  <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-transparent dark:to-transparent py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">Other Ways to Connect</h2>
+        <p class="text-lg text-muted leading-relaxed">
+          Choose whatever method feels most comfortable for you
+        </p>
+      </div>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">📧</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2 font-heading">Email Us</h3>
+          <p class="text-muted mb-4">Prefer email? We&apos;d love to hear from you.</p>
+          <a href="mailto:contact@example.com" class="text-primary hover:text-secondary font-semibold transition-colors">
+            contact@example.com
+          </a>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">📍</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2 font-heading">We&apos;re Based In</h3>
+          <p class="text-muted mb-4">Toronto, Ontario, Canada</p>
+          <p class="text-sm text-muted">We&apos;re happy to meet in person if you&apos;re in the area</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reassuring Message -->
+  <HeartfeltMessage>
+    <p class="mb-4">
+      We know reaching out can feel like a big step, and we want you to know that there&apos;s absolutely no
+      pressure. Whether you&apos;re seriously considering surrogacy or just exploring options and learning more,
+      we&apos;re happy to answer your questions.
+    </p>
+    <p class="mb-4">
+      Every question is valid, every concern is understandable, and every conversation is valuable. We&apos;re
+      here to be open, honest, and respectful of wherever you are in your journey.
+    </p>
+    <p>
+      We look forward to hearing from you and learning about your story too.
+    </p>
+  </HeartfeltMessage>
 </Layout>

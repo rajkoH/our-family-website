@@ -1,228 +1,249 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ChapterGallery from '~/components/widgets/ChapterGallery.astro';
+import HeartfeltMessage from '~/components/widgets/HeartfeltMessage.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Dylan & Ryan - Our Journey to Parenthood',
+  ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  <!-- Hero Section - Warm Welcome -->
   <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in Touch',
+        href: '/contact',
+      },
+    ]}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Hello, We&apos;re <span class="text-primary">Dylan & Ryan</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      <span class="text-lg md:text-xl leading-relaxed">
+        We&apos;re a loving couple from Toronto, and we&apos;re on a journey to grow our family.
+        We believe that every child deserves to be loved unconditionally, and we&apos;re looking
+        for a compassionate partner to help make our dream of parenthood a reality.
+      </span>
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Chapter 1: How We Met -->
+  <ChapterGallery
+    id="chapter-one"
+    chapterNumber={1}
+    tagline="Chapter One"
+    title="How We Met"
+    subtitle="2015 - When everything changed"
+  >
+    <div class="space-y-4">
+      <p class="text-lg leading-relaxed">
+        We met through mutual friends at a coffee shop in downtown Toronto. What started as a casual
+        introduction quickly became hours of conversation, shared laughter, and an undeniable connection.
+        By the end of that first meeting, we both knew something special had begun.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Our relationship grew organically - weekend adventures exploring the city, quiet evenings cooking
+        dinner together, and countless conversations about life, dreams, and what we wanted from our future.
+        We discovered we shared the same values: the importance of family, the joy of creating a warm home,
+        and a deep desire to make a positive impact in the world.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Within a year, we knew we wanted to spend our lives together. Not just because of the big moments,
+        but because of the small ones - the way we make each other laugh, how we support each other through
+        challenges, and how we&apos;ve built a partnership based on trust, respect, and genuine friendship.
+      </p>
+    </div>
+  </ChapterGallery>
 
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+  <!-- Chapter 2: Building Our Life Together -->
+  <ChapterGallery
+    id="chapter-two"
+    chapterNumber={2}
+    tagline="Chapter Two"
+    title="Building Our Life Together"
+    subtitle="Creating a home filled with love"
+    reverse={true}
+  >
+    <div class="space-y-4">
+      <p class="text-lg leading-relaxed">
+        After several years of dating, we got married in a beautiful ceremony surrounded by family and friends.
+        It was a celebration of not just our love, but of the life we&apos;d already built together and the
+        future we were excited to create.
+      </p>
+      <p class="text-lg leading-relaxed">
+        We&apos;ve created a home that reflects who we are - warm, welcoming, and filled with personal touches.
+        Our weekends are spent exploring Toronto&apos;s neighborhoods, trying new restaurants, visiting farmers
+        markets, and spending time with the people we love. We&apos;re both passionate about our careers but
+        never lose sight of what matters most - our relationship and our dreams for the future.
+      </p>
+      <p class="text-lg leading-relaxed">
+        We&apos;re fortunate to be surrounded by an incredible support network. Our families are close, involved,
+        and excited about our journey. We have friends who have become chosen family, and together we&apos;ve
+        created a community built on love, acceptance, and mutual support.
+      </p>
+    </div>
+  </ChapterGallery>
+
+  <!-- Chapter 3: Our Path to Surrogacy -->
+  <ChapterGallery
+    id="chapter-three"
+    chapterNumber={3}
+    tagline="Chapter Three"
+    title="Our Path to Surrogacy"
+    subtitle="Why we&apos;re here and what brought us to this moment"
+  >
+    <div class="space-y-4">
+      <p class="text-lg leading-relaxed">
+        From early in our relationship, we talked about having children. We&apos;ve always known that parenthood
+        was part of our future, and as our relationship deepened and our lives became more stable, that dream
+        became more tangible.
+      </p>
+      <p class="text-lg leading-relaxed">
+        We&apos;ve spent years preparing - emotionally, financially, and practically. We&apos;ve talked to other
+        families who&apos;ve been through surrogacy, learned from their experiences, and thought deeply about what
+        kind of parents we want to be. We&apos;ve prepared our home and our lives to welcome a child with all the
+        love and stability they deserve.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Surrogacy is a deeply personal choice, and we&apos;ve given it the consideration and respect it deserves.
+        We understand that this journey isn&apos;t just about us - it&apos;s about partnership, trust, and creating
+        something beautiful together with someone who shares our hope for bringing new life into the world.
+      </p>
+      <p class="text-lg leading-relaxed font-semibold text-primary">
+        We&apos;re ready. Ready to be parents, ready to give a child all the love we have, and ready to build a
+        meaningful connection with someone who will help make this dream a reality.
+      </p>
+    </div>
+  </ChapterGallery>
+
+  <!-- Our Values Section -->
+  <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-transparent dark:to-transparent py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-base text-secondary font-bold tracking-wide uppercase mb-2">What Guides Us</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4 font-heading">
+          Our Values & Beliefs
+        </h2>
+        <p class="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+          These are the principles that guide our lives and the foundation on which we&apos;ll build our family.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-amber-100 dark:border-orange-900">
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
+              <span class="text-4xl">💬</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-3 font-heading text-primary">Open & Honest Communication</h3>
+              <p class="text-lg text-muted leading-relaxed">
+                We believe that honest, respectful communication is the foundation of any strong relationship.
+                We approach difficult conversations with empathy, listen actively, and always strive to understand
+                each other&apos;s perspectives. This is how we&apos;ll approach our relationship with you and how
+                we&apos;ll teach our child to navigate the world.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-amber-100 dark:border-orange-900">
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
+              <span class="text-4xl">🙏</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-3 font-heading text-primary">Respect & Gratitude</h3>
+              <p class="text-lg text-muted leading-relaxed">
+                We have deep respect for all people and their journeys. We&apos;re grateful for what we have
+                and never take anything for granted. We believe in treating everyone with kindness and dignity,
+                and we&apos;re especially grateful for anyone who would consider helping us on this journey.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-amber-100 dark:border-orange-900">
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
+              <span class="text-4xl">❤️</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-3 font-heading text-primary">Unconditional Love & Support</h3>
+              <p class="text-lg text-muted leading-relaxed">
+                Love isn&apos;t something we give conditionally - it&apos;s the foundation of who we are.
+                We&apos;re committed to creating a home where our child feels safe, supported, and free to be
+                exactly who they are. We&apos;ll celebrate their uniqueness, encourage their dreams, and always
+                be their biggest cheerleaders.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-amber-100 dark:border-orange-900">
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
+              <span class="text-4xl">🌱</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-3 font-heading text-primary">Growth & Learning</h3>
+              <p class="text-lg text-muted leading-relaxed">
+                We believe in lifelong learning and continuous growth. We&apos;re not perfect, but we&apos;re
+                committed to being better every day. We&apos;ll make mistakes as parents, but we&apos;ll own them,
+                learn from them, and model resilience and humility for our child.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Message -->
+  <HeartfeltMessage signature="With gratitude, Dylan & Ryan">
+    <p class="mb-6">
+      Thank you for taking the time to read our story and learn about who we are. We know you probably have
+      questions, and we want you to know that we&apos;re an open book. We want you to feel comfortable asking
+      us anything - about our lives, our relationship, our hopes for parenthood, or anything else on your mind.
+    </p>
+    <p class="mb-6">
+      We&apos;re not just looking for someone to help us have a child. We&apos;re looking to build a connection
+      with someone we respect, trust, and who we hope will feel the same about us. Whatever level of involvement
+      feels right to you - whether that&apos;s staying connected or maintaining privacy - we&apos;re open to
+      discussing what works best for everyone.
+    </p>
+    <p>
+      If our story resonates with you, or if you&apos;d just like to learn more, please don&apos;t hesitate to
+      reach out. We&apos;re excited to hear from you.
+    </p>
+  </HeartfeltMessage>
+
+  <!-- Call to Action -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Let&apos;s Connect',
+        href: '/contact',
+      },
     ]}
-  />
+  >
+    <Fragment slot="title">
+      Ready to Learn More?
+    </Fragment>
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
-    ]}
-  />
+    <Fragment slot="subtitle">
+      We&apos;d love to hear from you. Whether you have questions, want to know more about us,
+      or just want to start a conversation, we&apos;re here and excited to connect. <br class="hidden md:inline" />
+      There&apos;s no pressure - just two people hoping to share their story and learn about yours.
+    </Fragment>
+  </CallToAction>
 </Layout>

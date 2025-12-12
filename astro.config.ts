@@ -24,6 +24,11 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  // Update these with your GitHub info:
+  // site: 'https://YOUR_USERNAME.github.io',
+  // base: '/YOUR_REPO_NAME',
+  // Uncomment and update the lines above before deploying!
+
   integrations: [
     tailwind({
       applyBaseStyles: false,

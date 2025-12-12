@@ -223,14 +223,26 @@ export const astroAssetsOptimizer: ImagesOptimizer = async (
     return [];
   }
 
+  // Calculate aspect ratio if we have both dimensions
+  const aspectRatio = _width && _height ? _width / _height : undefined;
+
   return Promise.all(
     breakpoints.map(async (w: number) => {
-      const result = await getImage({ src: image, width: w, inferSize: true, ...(format ? { format: format } : {}) });
+      // Calculate proportional height if we have aspect ratio
+      const h = aspectRatio ? Math.round(w / aspectRatio) : undefined;
+
+      const result = await getImage({
+        src: image,
+        width: w,
+        height: h,
+        inferSize: !h, // Only infer if we don't have calculated height
+        ...(format ? { format: format } : {})
+      });
 
       return {
         src: result?.src,
         width: result?.attributes?.width ?? w,
-        height: result?.attributes?.height,
+        height: result?.attributes?.height ?? h,
       };
     })
   );

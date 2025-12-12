@@ -1,0 +1,223 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  chapterNumber: number;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  tagline?: string;
+  reverse?: boolean;
+  id?: string;
+  classes?: Record<string, string>;
+}
+
+const {
+  chapterNumber,
+  title,
+  subtitle,
+  description,
+  tagline,
+  reverse = false,
+  id,
+  classes = {},
+} = Astro.props;
+
+// Dynamically get all images for this chapter from public/images
+const allImages = import.meta.glob('/public/images/Chapter*.{jpg,JPG,jpeg,JPEG,png,PNG}', { eager: false });
+const chapterPrefix = `Chapter${chapterNumber}-`;
+
+// Filter images for this chapter and extract just the paths
+const chapterImages = Object.keys(allImages)
+  .filter(path => path.includes(`/Chapter${chapterNumber}-`))
+  .map(path => path.replace('/public', ''))
+  .sort();
+
+// Generate unique ID for this gallery
+const galleryId = `gallery-chapter-${chapterNumber}`;
+---
+
+<section
+  {...id ? { id } : {}}
+  class={`py-16 md:py-20 ${reverse ? 'bg-gradient-to-br from-orange-50 to-amber-50 dark:from-transparent dark:to-transparent' : ''} ${classes?.container ?? ''}`}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': reverse, 'md:flex-row': !reverse }]}>
+
+      <!-- Gallery Side -->
+      <div class="flex-1 flex items-center justify-center">
+        <div class="relative w-full max-w-2xl">
+          {tagline && (
+            <p class="text-base text-secondary dark:text-blue-200 font-semibold tracking-wide uppercase mb-2">
+              {tagline}
+            </p>
+          )}
+
+          {chapterImages.length > 0 ? (
+            <div class="relative">
+              <!-- Gallery Container -->
+              <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 to-secondary/20">
+                <div class="relative flex items-center justify-center" style="min-height: 400px; max-height: 700px;">
+                  {chapterImages.map((image, index) => (
+                    <img
+                      src={image}
+                      alt={`${title} - Photo ${index + 1}`}
+                      class={`w-full h-auto max-h-[700px] object-contain transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+                      data-gallery={galleryId}
+                      data-index={index}
+                      width={800}
+                      height={600}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      style={index === 0 ? '' : 'position: absolute; inset: 0;'}
+                    />
+                  ))}
+                </div>
+
+                <!-- Gallery Controls -->
+                {chapterImages.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 dark:bg-slate-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                      data-gallery-prev={galleryId}
+                      aria-label="Previous image"
+                    >
+                      <Icon name="tabler:chevron-left" class="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                    </button>
+
+                    <button
+                      type="button"
+                      class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 dark:bg-slate-800/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                      data-gallery-next={galleryId}
+                      aria-label="Next image"
+                    >
+                      <Icon name="tabler:chevron-right" class="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                    </button>
+
+                    <!-- Dots Indicator -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {chapterImages.map((_, index) => (
+                        <button
+                          type="button"
+                          class={`w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-white w-6' : 'bg-white/60 hover:bg-white/80'}`}
+                          data-gallery-dot={galleryId}
+                          data-index={index}
+                          aria-label={`Go to image ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <!-- Photo Counter -->
+              {chapterImages.length > 1 && (
+                <div class="mt-4 text-center">
+                  <p class="text-sm text-muted">
+                    <span data-gallery-current={galleryId}>1</span> / {chapterImages.length}
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl flex items-center justify-center" style="min-height: 400px;">
+              <p class="text-muted">No photos yet</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Content Side -->
+      <div class="flex-1 flex flex-col justify-center">
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4 font-heading">
+          {title}
+        </h2>
+        {subtitle && (
+          <p class="text-xl text-muted dark:text-slate-400 mb-6 leading-relaxed italic">
+            {subtitle}
+          </p>
+        )}
+        {description && (
+          <div class="prose prose-lg max-w-none dark:prose-invert prose-p:text-default prose-p:leading-relaxed">
+            <p set:html={description} />
+          </div>
+        )}
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ galleryId }}>
+  // Gallery functionality
+  let currentIndex = 0;
+  const images = document.querySelectorAll(`[data-gallery="${galleryId}"]`);
+  const dots = document.querySelectorAll(`[data-gallery-dot="${galleryId}"]`);
+  const currentCounter = document.querySelector(`[data-gallery-current="${galleryId}"]`);
+
+  function showImage(index) {
+    images.forEach((img, i) => {
+      if (i === index) {
+        img.classList.add('opacity-100');
+        img.classList.remove('opacity-0');
+        img.style.position = 'relative';
+      } else {
+        img.classList.remove('opacity-100');
+        img.classList.add('opacity-0');
+        img.style.position = 'absolute';
+        img.style.inset = '0';
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('bg-white', 'w-6');
+        dot.classList.remove('bg-white/60', 'w-2');
+      } else {
+        dot.classList.remove('bg-white', 'w-6');
+        dot.classList.add('bg-white/60', 'w-2');
+      }
+    });
+
+    if (currentCounter) {
+      currentCounter.textContent = (index + 1).toString();
+    }
+
+    currentIndex = index;
+  }
+
+  // Previous button
+  const prevBtn = document.querySelector(`[data-gallery-prev="${galleryId}"]`);
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+      showImage(newIndex);
+    });
+  }
+
+  // Next button
+  const nextBtn = document.querySelector(`[data-gallery-next="${galleryId}"]`);
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+      showImage(newIndex);
+    });
+  }
+
+  // Dot buttons
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showImage(index);
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && prevBtn) {
+      prevBtn.click();
+    } else if (e.key === 'ArrowRight' && nextBtn) {
+      nextBtn.click();
+    }
+  });
+</script>
+
