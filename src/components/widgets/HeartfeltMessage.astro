@@ -27,7 +27,6 @@ const { message = await Astro.slots.render('default'), signature, id, isDark = f
       <div class="relative z-10">
         <div class="prose prose-lg md:prose-xl max-w-none dark:prose-invert">
           <div class="text-lg md:text-xl leading-relaxed text-default font-serif italic">
-            <Fragment set:html={message} />
             <slot />
           </div>
         </div>
@@ -43,7 +42,7 @@ const { message = await Astro.slots.render('default'), signature, id, isDark = f
 
       <!-- Decorative Elements -->
       <div class="absolute bottom-4 right-4 text-primary/10 dark:text-primary/20">
-        <Icon name="tabler:heart" class="w-24 h-24 md:w-32 md:h-32" />
+        <Icon name="tabler:heart" class="w-16 h-16 md:w-20 md:h-20" />
       </div>
     </div>
   </div>

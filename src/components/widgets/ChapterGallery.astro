@@ -43,7 +43,7 @@ const galleryId = `gallery-chapter-${chapterNumber}`;
 
 <section
   {...id ? { id } : {}}
-  class={`py-16 md:py-20 ${reverse ? 'bg-gradient-to-br from-orange-50 to-amber-50 dark:from-transparent dark:to-transparent' : ''} ${classes?.container ?? ''}`}
+  class={`py-6 md:py-8 ${reverse ? 'bg-gradient-to-br from-orange-50 to-amber-50 dark:from-transparent dark:to-transparent' : ''} ${classes?.container ?? ''}`}
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': reverse, 'md:flex-row': !reverse }]}>
@@ -52,7 +52,7 @@ const galleryId = `gallery-chapter-${chapterNumber}`;
       <div class="flex-1 flex items-center justify-center">
         <div class="relative w-full max-w-2xl">
           {tagline && (
-            <p class="text-base text-secondary dark:text-orange-200 font-semibold tracking-wide uppercase mb-2">
+            <p class="text-lg md:text-xl text-secondary dark:text-orange-200 font-bold tracking-wide uppercase mb-3">
               {tagline}
             </p>
           )}
@@ -136,16 +136,16 @@ const galleryId = `gallery-chapter-${chapterNumber}`;
 
       <!-- Content Side -->
       <div class="flex-1 flex flex-col justify-center">
-        <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4 font-heading">
+        <h2 class="text-xl md:text-2xl font-bold leading-tight tracking-tight mb-2 font-heading">
           {title}
         </h2>
         {subtitle && (
-          <p class="text-xl text-muted dark:text-slate-400 mb-6 leading-relaxed italic">
+          <p class="text-base md:text-lg text-muted dark:text-slate-400 mb-4 leading-relaxed italic">
             {subtitle}
           </p>
         )}
         {description && (
-          <div class="prose prose-lg max-w-none dark:prose-invert prose-p:text-default prose-p:leading-relaxed">
+          <div class="prose prose-base max-w-none dark:prose-invert prose-p:text-default prose-p:leading-relaxed">
             <p set:html={description} />
           </div>
         )}

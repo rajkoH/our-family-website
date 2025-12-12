@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import ChapterGallery from '~/components/widgets/ChapterGallery.astro';
 import HeartfeltMessage from '~/components/widgets/HeartfeltMessage.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Dylan & Ryan - Our Journey to Parenthood',
@@ -35,6 +34,11 @@ const metadata = {
     </Fragment>
   </Hero>
 
+  <!-- Decorative Separator -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="border-t-2 border-primary/20"></div>
+  </div>
+
   <!-- Chapter 1: How We Met -->
   <ChapterGallery
     id="chapter-one"
@@ -44,14 +48,14 @@ const metadata = {
     subtitle="2018 - When everything changed"
   >
     <div class="space-y-4">
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         We met online in 2018, and within a few messages, we both decided to meet in person rather than spend too much
         time chatting. Our first date started with coffee that quickly turned into dinner at a dim sum restaurant. Both
         of us, trying to impress each other with our adventurous palates, ordered cold webbed-duck feet - which took us
         both by surprise! After dinner, we went to a light exhibit downtown, and what was supposed to be a simple first
         date turned into 8 hours of conversation, laughter, and discovering we had found something special.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         We quickly discovered we share a deep love of new adventures together - skiing down mountains, camping under the
         stars, traveling to new places, and most importantly, our passion for food and exploring different cuisines and
         culture. Our relationship grew organically through weekend adventures exploring the city, quiet evenings cooking
@@ -59,7 +63,7 @@ const metadata = {
         discovered we shared the same values: the importance of family, the joy of creating a warm home, and a deep
         desire to make a positive impact in the world.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         In the middle of COVID, we took a leap and moved to Italy together while Dylan studied his MBA. It was a
         challenging time that tested us in ways we never expected, but it ultimately brought us closer. Navigating a
         pandemic in a foreign country taught us that we could face anything as long as we faced it together.
@@ -77,29 +81,29 @@ const metadata = {
     reverse={true}
   >
     <div class="space-y-4">
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         In June 2022, we took a major step in our journey together and bought our first home - a small townhouse in
         downtown Toronto. It&apos;s only 12 feet wide, but we absolutely love it. It&apos;s our cozy sanctuary in the
         heart of the city, and we&apos;ve filled it with memories, laughter, and dreams for the future.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         On March 29th, 2025, we got married in a beautiful ceremony surrounded by family and friends. It was a
         celebration of not just our love, but of the life we&apos;d already built together and the future we were
         excited to create.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         When we got married, we knew we wanted to share a family name - one that we would give to our children one day.
         Rather than merging our both long 10-letter last names (Ciccarelli and Hristovski), we decided to create
         something new together. We combined them to form <span class="font-semibold text-primary">Ciccovski</span> - a name
         that represents both of our heritages and the new family we&apos;re building together.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         We&apos;ve created a home that reflects who we are - warm, welcoming, and filled with personal touches. Our
         weekends are spent exploring Toronto&apos;s neighborhoods, trying new restaurants, visiting farmers markets, and
         spending time with the people we love. We&apos;re both passionate about our careers but never lose sight of what
         matters most - our relationship and our dreams for the future.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         We&apos;re fortunate to be surrounded by an incredible support network. Our families are close, involved, and
         excited about our journey. We have friends who have become chosen family, and together we&apos;ve created a
         community built on love, acceptance, and mutual support.
@@ -116,18 +120,18 @@ const metadata = {
     subtitle="Why we're here and what brought us to this moment"
   >
     <div class="space-y-4">
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         From early in our relationship, we talked about having children. We&apos;ve always known that parenthood was
         part of our future, and as our relationship deepened and our lives became more stable, that dream became more
         tangible.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         We&apos;ve spent years preparing - emotionally, financially, and practically. We&apos;ve talked to other
         families who&apos;ve been through surrogacy, learned from their experiences, and thought deeply about what kind
         of parents we want to be. We&apos;ve prepared our home and our lives to welcome a child with all the love and
         stability they deserve.
       </p>
-      <p class="text-lg leading-relaxed">
+      <p class="text-base leading-relaxed">
         Surrogacy is a deeply personal choice, and we&apos;ve given it the consideration and respect it deserves. We
         understand that this journey isn&apos;t just about us - it&apos;s about partnership, trust, and creating
         something beautiful together with someone who shares our hope for bringing new life into the world.
@@ -138,6 +142,11 @@ const metadata = {
       </p>
     </div>
   </ChapterGallery>
+
+  <!-- Decorative Separator -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+    <div class="border-t-2 border-primary/20"></div>
+  </div>
 
   <!-- Our Values Section -->
   <div
@@ -239,6 +248,11 @@ const metadata = {
     </div>
   </div>
 
+  <!-- Decorative Separator -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+    <div class="border-t-2 border-primary/20"></div>
+  </div>
+
   <!-- Meet Dylan -->
   <section class="py-16 md:py-20">
     <div class="mx-auto px-4 sm:px-6 max-w-7xl">
@@ -256,22 +270,22 @@ const metadata = {
             Meet Dylan
           </p>
           <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4 font-heading">Dylan's Story</h2>
-          <p class="text-lg text-muted dark:text-slate-400 mb-6 italic">Born March 1994 in Toronto</p>
+          <p class="text-lg text-muted dark:text-slate-400 mb-6 italic">Only child, academic, trivia champion</p>
           <div class="space-y-4">
-            <p class="text-lg leading-relaxed">
+            <p class="text-base leading-relaxed">
               Dylan was born in March 1994 in downtown Toronto as the only child to his parents, Brad and Kadi. Growing
               up, he was both studious and athletic - the kind of kid who excelled in the classroom and on the field.
               His academic journey took him to Colby College for his undergraduate degree and then to Bocconi University
               in Milan, where he earned his MBA. Today, he works as a Manager in Strategy Execution at the Canadian
               Pension Plan Investment Board.
             </p>
-            <p class="text-lg leading-relaxed">
+            <p class="text-base leading-relaxed">
               Dylan is a big personality who is unapologetically himself. He&apos;s an introvert who finds joy in the
               quiet moments - curled up with a good book or diving deep into a topic that fascinates him. He&apos;s
               basically a walking encyclopedia, and you&apos;ll definitely want him on your trivia team! His mind is
               constantly curious, always learning, always growing.
             </p>
-            <p class="text-lg leading-relaxed">
+            <p class="text-base leading-relaxed">
               What makes Dylan special is his thoughtfulness. He&apos;s the kind of friend who remembers the small
               details, who shows up when it matters, and who approaches relationships with genuine care and
               consideration. As a parent, he&apos;ll be the one reading bedtime stories with different voices for each
@@ -303,21 +317,21 @@ const metadata = {
             Meet Ryan
           </p>
           <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4 font-heading">Ryan's Story</h2>
-          <p class="text-lg text-muted dark:text-slate-400 mb-6 italic">Born September 1995 in Barrie, Ontario</p>
+          <p class="text-lg text-muted dark:text-slate-400 mb-6 italic">Godfather, techie, outdoor enthusiast</p>
           <div class="space-y-4">
-            <p class="text-lg leading-relaxed">
+            <p class="text-base leading-relaxed">
               Ryan was born in September 1995 in Barrie, Ontario, to his parents Peter and Nancy. He has one brother,
               Elliot, who is also his best friend. Ryan is the proud godfather to Elliot&apos;s daughter, our prized and
               beautiful niece Ellie, who brings endless joy to our lives. Family has always been at the center of
               Ryan&apos;s world, and he carries those values into everything he does.
             </p>
-            <p class="text-lg leading-relaxed">
+            <p class="text-base leading-relaxed">
               Ryan studied Computer Science at Brock University and has a deep passion for learning about technology. He
               works as a Software Developer at Robinhood, where he gets to combine his love of problem-solving with his
               technical skills. But what really lights Ryan up is being around people - he&apos;s an extrovert who
               thrives on connection and energy.
             </p>
-            <p class="text-lg leading-relaxed">
+            <p class="text-base leading-relaxed">
               You&apos;ll find Ryan cooking up something delicious in his wok, getting lost in a fantasy novel, carving
               down a ski slope, or dancing like nobody&apos;s watching (or like everyone is - he doesn&apos;t mind
               either way!). He&apos;s a kind and thoughtful person who connects deeply with nature and finds peace in
@@ -332,7 +346,7 @@ const metadata = {
   </section>
 
   <!-- Personal Message -->
-  <HeartfeltMessage signature="With gratitude, Dylan & Ryan">
+  <HeartfeltMessage signature="With gratitude, Dylan & Ryan Ciccovski">
     <p class="mb-6">
       Thank you for taking the time to read our story and learn about who we are. We know you probably have questions,
       and we want you to know that we&apos;re an open book. We want you to feel comfortable asking us anything - about
@@ -349,23 +363,4 @@ const metadata = {
       out. We&apos;re excited to hear from you.
     </p>
   </HeartfeltMessage>
-
-  <!-- Call to Action -->
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Let&apos;s Connect',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="title"> Ready to Learn More? </Fragment>
-
-    <Fragment slot="subtitle">
-      We&apos;d love to hear from you. Whether you have questions, want to know more about us, or just want to start a
-      conversation, we&apos;re here and excited to connect. <br class="hidden md:inline" />
-      There&apos;s no pressure - just two people hoping to share their story and learn about yours.
-    </Fragment>
-  </CallToAction>
 </Layout>
