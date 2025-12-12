@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import ChapterGallery from '~/components/widgets/ChapterGallery.astro';
 import HeartfeltMessage from '~/components/widgets/HeartfeltMessage.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Dylan & Ryan - Our Journey to Parenthood',
@@ -17,7 +18,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Get in Touch',
-        href: '/contact',
+        href: getPermalink('/contact'),
       },
     ]}
   >

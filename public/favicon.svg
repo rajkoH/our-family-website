@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Warm cream background -->
+  <circle cx="50" cy="50" r="50" fill="#FEF7F0"/>
+
+  <!-- Two hearts representing Dylan & Ryan -->
+  <g transform="translate(50, 42)">
+    <!-- Left heart -->
+    <path d="M -12,-8 C -12,-15 -20,-15 -20,-8 C -20,0 -12,10 -12,16 C -12,10 -4,0 -4,-8 C -4,-15 -12,-15 -12,-8 Z"
+          fill="#D08C64" stroke="#B47864" stroke-width="1.2"/>
+
+    <!-- Right heart -->
+    <path d="M 12,-8 C 12,-15 4,-15 4,-8 C 4,0 12,10 12,16 C 12,10 20,0 20,-8 C 20,-15 12,-15 12,-8 Z"
+          fill="#DC966E" stroke="#B47864" stroke-width="1.2"/>
+
+    <!-- Small heart in middle (future child) -->
+    <path d="M 0,12 C 0,8 -4,8 -4,12 C -4,16 0,20 0,22 C 0,20 4,16 4,12 C 4,8 0,8 0,12 Z"
+          fill="#F0C5A8" stroke="#D08C64" stroke-width="0.8"/>
+  </g>
+
+  <!-- Initials -->
+  <text x="50" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#D08C64">D&R</text>
+</svg>
+

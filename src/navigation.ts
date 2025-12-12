@@ -11,7 +11,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Get in Touch', href: getPermalink('/contact') }],
+  actions: [{ text: 'Get in Touch', href: getPermalink('/contact'), target: '_self' }],
 };
 
 export const footerData = {
