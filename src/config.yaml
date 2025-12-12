@@ -16,11 +16,11 @@ metadata:
     index: true
     follow: true
   openGraph:
-    site_name: Surrogacy Profile
+    site_name: Dylan & Ryan - Our Journey to Parenthood
     images:
-      - url: '~/assets/images/default.png'
+      - url: '/our-family-website/images/Chapter2-1.jpg'
         width: 1200
-        height: 628
+        height: 800
     type: website
   twitter:
     handle: ''
