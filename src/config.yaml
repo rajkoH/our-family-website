@@ -1,7 +1,7 @@
 site:
   name: Dylan & Ryan
   site: 'https://rajkoh.github.io'
-  base: '/'
+  base: '/our-family-website'
   trailingSlash: false
 
   googleSiteVerificationId: # Add your Google verification ID if desired

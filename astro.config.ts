@@ -21,16 +21,13 @@ const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
-// Use base path for GitHub Pages in production, root path for local dev
-// Check for explicit production build (CI=true for GitHub Actions) or production mode
-const isProd = process.env.CI === 'true' || process.env.NODE_ENV === 'production';
-
 export default defineConfig({
   output: 'static',
 
-  // GitHub Pages configuration
-  site: isProd ? 'https://rajkoh.github.io/our-family-website' : 'http://localhost:4321',
-  base: isProd ? '/our-family-website' : '/',
+  // GitHub Pages configuration - always use the production values
+  // Astro will handle the base path correctly
+  site: 'https://rajkoh.github.io',
+  base: '/our-family-website',
 
   integrations: [
     tailwind({
