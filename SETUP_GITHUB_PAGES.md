@@ -49,10 +49,8 @@ git push origin main
 
 Your site will be live at:
 ```
-https://YOUR_USERNAME.github.io/rajkoH/
+https://rajkoh.github.io/our-family-website/
 ```
-
-(Replace `YOUR_USERNAME` with your actual GitHub username)
 
 ---
 

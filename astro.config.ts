@@ -24,10 +24,9 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
-  // Update these with your GitHub info:
-  site: 'https://rajkoH.github.io',
+  // GitHub Pages configuration
+  site: 'https://rajkoh.github.io',
   base: '/our-family-website',
-  // Uncomment and update the lines above before deploying!
 
   integrations: [
     tailwind({

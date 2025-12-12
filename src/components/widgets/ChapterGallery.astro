@@ -25,7 +25,6 @@ const {
 
 // Dynamically get all images for this chapter from public/images
 const allImages = import.meta.glob('/public/images/Chapter*.{jpg,JPG,jpeg,JPEG,png,PNG}', { eager: false });
-const chapterPrefix = `Chapter${chapterNumber}-`;
 
 // Filter images for this chapter and extract just the paths
 const chapterImages = Object.keys(allImages)
@@ -148,7 +147,7 @@ const galleryId = `gallery-chapter-${chapterNumber}`;
   </div>
 </section>
 
-<script define:vars={{ galleryId }}>
+<script is:inline define:vars={{ galleryId }}>
   // Gallery functionality
   let currentIndex = 0;
   const images = document.querySelectorAll(`[data-gallery="${galleryId}"]`);
