@@ -27,6 +27,10 @@ export default defineConfig({
   // GitHub Pages configuration
   site: 'https://rajkoh.github.io',
   base: '/our-family-website',
+  trailingSlash: 'always',
+  build: {
+    assets: '_astro'
+  },
 
   integrations: [
     tailwind({

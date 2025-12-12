@@ -1,4 +1,6 @@
 ---
 // Redirect to the main about page
-return Astro.redirect('/about');
+import { SITE } from 'astrowind:config';
+
+return Astro.redirect(`${import.meta.env.BASE_URL}about`);
 ---
