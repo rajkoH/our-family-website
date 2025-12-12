@@ -25,8 +25,8 @@ export default defineConfig({
   output: 'static',
 
   // Update these with your GitHub info:
-  // site: 'https://YOUR_USERNAME.github.io',
-  // base: '/YOUR_REPO_NAME',
+  site: 'https://rajkoH.github.io',
+  base: '/our-family-website',
   // Uncomment and update the lines above before deploying!
 
   integrations: [
